@@ -1,0 +1,37 @@
+.event {
+  margin-top: 3rem;
+  min-height: 100vh;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  letter-spacing: 0.3rem;
+  margin: 2.5rem;
+  color: #00a9fc;
+}
+
+.event > .list {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  width: 80vw;
+  height: 35vh;
+  margin-bottom: 8vh;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 162px 27px rgba(0, 0, 0, 0.44) inset;
+  -webkit-box-shadow: 0px 0px 162px 27px rgba(0, 0, 0, 0.44) inset;
+  -moz-box-shadow: 0px 0px 162px 27px rgba(0, 0, 0, 0.44) inset;
+}
+
+.result {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

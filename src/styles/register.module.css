@@ -1,0 +1,66 @@
+.container {
+  min-height: 100vh;
+}
+
+.container > .title {
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
+}
+
+.container > form {
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.container > form > .details {
+  height: 70vh;
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.details > .content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.content > input,
+.content > select {
+  height: 4vh;
+}
+.content > input:focus,
+.content > select:focus {
+  border: none;
+}
+
+.content > label {
+  color: #00a9fc;
+  letter-spacing: 0.2rem;
+}
+
+.container > form > button {
+  width: 15vw;
+  height: 6vh;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  justify-content: center;
+  border: 1px solid black;
+  color: #000;
+  letter-spacing: 0.1rem;
+  border-radius: 0.5rem;
+  background-color: #28de00;
+}
+
+.container > form > button:hover {
+  background-color: white;
+}

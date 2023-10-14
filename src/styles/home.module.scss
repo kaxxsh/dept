@@ -1,0 +1,141 @@
+.main {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:700");
+
+@keyframes showTopText {
+  0% {
+    transform: translateY(100%);
+  }
+  40%,
+  60% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes showBottomText {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.left {
+  color: white;
+  font-family: Roboto, Arial, sans-serif;
+  height: 40vh;
+  transform: translate(0%, 0%);
+  width: 90vh;
+}
+
+.left > div {
+  height: 50%;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+}
+
+.left > div div {
+  font-size: 3rem;
+  padding: 3vh 0;
+  position: absolute;
+}
+
+.left > div div span {
+  display: block;
+}
+
+.left > div.text_top {
+  border-bottom: 1vh solid #000;
+  top: 0;
+}
+
+.left > div.text_top div {
+  animation: showTopText 1s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  bottom: 0;
+  transform: translateY(100%);
+}
+
+.left > div.text_top div span:first-child {
+  color: white;
+}
+
+.left > div.text_bottom {
+  bottom: 0;
+}
+
+.left > div.text_bottom div {
+  font-size: 2.7rem;
+  display: flex;
+  justify-content: space-between;
+  animation: showBottomText 0.5s;
+  animation-delay: 1.75s;
+  animation-fill-mode: forwards;
+  top: 0;
+  transform: translateY(-100%);
+}
+.left > div.text_bottom div span {
+  font-weight: bold;
+  letter-spacing: 0.5rem;
+}
+.left > div.text_bottom div span:nth-child(1) {
+  color: #00a9fc;
+}
+.left > div.text_bottom div span:nth-child(2) {
+  color: #28de00;
+}
+.left > div.text_bottom div span:nth-child(3) {
+  color: #ff000a;
+}
+.left > div.text_bottom div span:nth-child(4) {
+  color: #e1008c;
+}
+
+.main > .right {
+  width: 50vw;
+  height: 80vh;
+}
+
+.main > .right > img {
+  width: 50vw;
+  height: 80vh;
+}
+
+.registration {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.registration > a > .btn {
+  width: 20vw;
+  height: 8vh;
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+  justify-content: center;
+  border: 1px solid black;
+  color: #000;
+  letter-spacing: 0.1rem;
+  border-radius: 1rem;
+  background-color: #28de00;
+}
+.registration > a {
+  text-decoration: none;
+}
+
+.registration > a > .btn:hover {
+  background-color: white;
+}
