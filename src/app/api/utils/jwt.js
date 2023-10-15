@@ -1,10 +1,9 @@
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 
-const jwtGenrator = async ({ payload }) => {
-  const user = payload.toString();
+const jwtGenerator = async ({ payload }) => {
   const alg = "HS256";
-  return await new SignJWT({ user })
+  return await new SignJWT({ payload })
     .setProtectedHeader({ alg })
     .setExpirationTime(process.env.NEXT_PUBLIC_JWT_EXPIRE)
     .setIssuedAt()
@@ -13,14 +12,17 @@ const jwtGenrator = async ({ payload }) => {
 
 const jwtVerifier = async (token) => {
   try {
-    return await jwtVerify(
+    const verify = await jwtVerify(
       token,
       new TextEncoder().encode(process.env.NEXT_PUBLIC_JWT_SECRET)
     );
+    if (verify.payload.payload.role === "admin") {
+      return verify;
+    }
   } catch (error) {
     console.log(error);
     cookies().delete("token");
   }
 };
 
-export { jwtGenrator, jwtVerifier };
+export { jwtGenerator, jwtVerifier };

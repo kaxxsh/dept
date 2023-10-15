@@ -11,6 +11,8 @@
   "dependencies": {
     "aos": "^2.3.4",
     "bcryptjs": "^2.4.3",
+    "cloudinary": "^1.41.0",
+    "crypto": "^1.0.1",
     "jose": "^4.15.3",
     "mongodb": "^6.1.0",
     "mongoose": "^7.6.2",

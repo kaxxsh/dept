@@ -38,9 +38,6 @@ export default function footer() {
           </div>
         </div>
       </div>
-      <div className={styles.policy}>
-        © 2023 drestein.it All rights reserved.
-      </div>
     </section>
   );
 }

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { authUser } from "../../utils/schema.js";
-import { jwtGenrator } from "../../utils/jwt.js";
+import { jwtGenerator } from "../../utils/jwt.js";
 import dbConnection from "../../utils/db.js";
 import comparePassword from "../../utils/passCompare.js";
 
@@ -8,6 +8,7 @@ dbConnection(process.env.NEXT_PUBLIC_MONGO_URL);
 export async function POST(req) {
   try {
     const { Email, Password } = await req.json();
+    console.log(Email, Password);
     if (!Email || !Password) {
       return NextResponse.json(
         { message: "Email or Password is missing" },
@@ -25,7 +26,9 @@ export async function POST(req) {
         { status: 400 }
       );
     }
-    const token = await jwtGenrator({ payload: User._id });
+    const token = await jwtGenerator({
+      payload: { id: User._id, role: User.role },
+    });
     const response = NextResponse.json(
       { message: "Logged in Succesfully!" },
       { status: 200 }

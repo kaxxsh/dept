@@ -1,4 +1,5 @@
 import "./globals.css";
+import styles from "@/styles/footer.module.css";
 import { Toaster } from "sonner";
 
 export const metadata = {
@@ -11,6 +12,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         {children}
+        <div className={styles.policy}>
+          © 2023 drestein.it All rights reserved.
+        </div>
         <Toaster position="top-center" />
       </body>
     </html>

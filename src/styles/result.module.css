@@ -1,0 +1,175 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.container > .title {
+  width: 90%;
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  letter-spacing: 0.4rem;
+  transition: color 0.3s;
+}
+
+.container > .title:hover {
+  color: #3498db;
+}
+
+.container > .box {
+  height: 80vh;
+  width: 90%;
+  transition: transform 0.3s;
+}
+
+.container > .box:hover {
+  transform: scale(1.05);
+}
+
+.box > .title {
+  height: 5vh;
+  font-size: 1.8rem;
+  letter-spacing: 0.4rem;
+  padding-left: 2rem;
+  transition: color 0.3s;
+  color: #e1008c;
+}
+
+.box > .list {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 8vh;
+  gap: 20px;
+}
+
+.list > a {
+  width: 20%;
+  height: 50vh;
+  box-shadow: 0px 0px 22px 3px rgba(255, 255, 255, 0.75);
+  border-radius: 0.5rem;
+  background-image: url("../../public/drone.PNG");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.3s;
+}
+
+.list > a:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 30px 6px rgba(52, 152, 219, 0.75);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+@media (max-width: 768px) {
+  .container {
+    height: auto;
+    padding: 20px;
+  }
+
+  .container > .title {
+    display: none;
+  }
+
+  .container > .box {
+    height: auto;
+    width: 100%;
+  }
+
+  .box > .title {
+    font-size: 1.4rem;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .box > .list {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .list > a {
+    width: 90%;
+    height: 200px;
+    margin-bottom: 20px;
+  }
+}
+
+.event {
+  min-height: 85vh;
+  width: 90%;
+}
+
+.des > .title,
+.round > .title {
+  min-height: 8vh;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  color: #e1008c;
+}
+
+.rules,
+.output > .title {
+  min-height: 6vh;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  padding-left: 6rem;
+  text-decoration: underline;
+  letter-spacing: 0.2rem;
+  color: #28de00;
+}
+
+.des > .content {
+  min-height: 15vh;
+  display: flex;
+  align-items: center;
+  text-align: justify;
+  line-height: 2rem;
+  padding-left: 6vw;
+}
+.round > .content {
+  min-height: 15vh;
+  display: flex;
+  align-items: center;
+  text-align: justify;
+  line-height: 2rem;
+  padding-left: 10vw;
+}
+
+.round,
+.des {
+  min-height: 40vh;
+}
+
+.footer {
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5vw;
+  padding-top: 2vh;
+  border-top: 1px solid white;
+  color: beige;
+}
+
+.container > .banner {
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner > img {
+  height: 80vh;
+  width: 70vw;
+  border-radius: 0.5rem;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}

@@ -1,6 +1,8 @@
 import dbConnection from "@/app/api/utils/db";
 import { NextResponse } from "next/server";
 import { userRegistered } from "@/app/api/utils/schema";
+import dbConnection from "../../utils/db.js";
+
 
 dbConnection(process.env.NEXT_PUBLIC_MONGO_URL);
 
