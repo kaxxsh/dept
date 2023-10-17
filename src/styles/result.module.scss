@@ -161,7 +161,7 @@
 }
 
 .container > .banner {
-  height: 85vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -172,4 +172,63 @@
   width: 70vw;
   border-radius: 0.5rem;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.output {
+  height: 40vh;
+}
+
+.instructor {
+  height: 55vh;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  .photo {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 80%;
+      height: 85%;
+      border-radius: 50%;
+    }
+  }
+  .details {
+    width: 60%;
+    height: 100%;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    .designation {
+      margin-top: 2.5rem;
+    }
+  }
+}
+
+.agenta,
+.requirement {
+  min-height: 50vh;
+  width: 90%;
+  .title {
+    height: 6vh;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.1rem;
+  }
+  .content {
+    min-height: 44vh;
+    width: 100%;
+    .card {
+      width: 90%;
+      height: 8vh;
+      margin-left: 10%;
+      display: flex;
+      align-items: center;
+      text-decoration:solid;
+    }
+  }
 }

@@ -1,5 +1,5 @@
 "use client";
-import styles from "@/styles/result.module.css";
+import styles from "@/styles/result.module.scss";
 import stylesfoot from "@/styles/footer.module.css";
 import { useParams } from "next/navigation";
 export default function Result() {
@@ -99,7 +99,6 @@ export default function Result() {
           <div className={stylesfoot.contact}>
             <div className={stylesfoot.title}>CONTACT</div>
             <div className="">EMAIL : drestein.it@gmail.com</div>
-            <div className="">PHONE : 0000000000</div>
             <div className={stylesfoot.title}>SOCIAL MEDIA</div>
             <div className="">
               <a href="https://www.instagram.com/it_drestein23/?igshid=YTQwZjQ0NmI0OA%3D%3D">

@@ -83,7 +83,6 @@ export async function POST(req) {
     }
     const data = Object.fromEntries(formData);
     try {
-      console.log(data);
       const prev = await eventDetails.findById(data._id);
       if (!prev) {
         await eventDetails.create({
@@ -91,6 +90,7 @@ export async function POST(req) {
           title: data.title,
           description: data.description,
           days: data.data,
+          date: data.date,
           round1: data.round1,
           round2: data.round2,
           round3: data.round3,
@@ -107,6 +107,10 @@ export async function POST(req) {
           course: data.course,
           banner: data.banner,
           photo: data.photo,
+          location: data.location,
+          facoordinator: data.facoordinator,
+          stcoordinator1: data.stcoordinator1,
+          stcoordinator2: data.stcoordinator2,
         });
       } else {
         await eventDetails.findByIdAndUpdate(data._id, {
@@ -130,6 +134,10 @@ export async function POST(req) {
           course: data.course,
           banner: data.banner,
           photo: data.photo,
+          location: data.location,
+          facoordinator: data.facoordinator,
+          stcoordinator1: data.stcoordinator1,
+          stcoordinator2: data.stcoordinator2,
         });
       }
     } catch (error) {

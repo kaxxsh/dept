@@ -116,6 +116,39 @@ const Details = new mongoose.Schema({
   Course: {
     type: String,
   },
+  location: {
+    type: String,
+    required: true,
+  },
+  facoordinator: {
+    type: String,
+    required: true,
+  },
+  stcoordinator1: {
+    type: String,
+    required: true,
+  },
+  stcoordinator2: {
+    type: String,
+    required: true,
+  },
+});
+
+const Result = new mongoose.Schema({
+  event: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  round1: {
+    type: String,
+  },
+  round2: {
+    type: String,
+  },
+  round3: {
+    type: String,
+  },
 });
 
 const User = new mongoose.Schema(
@@ -159,5 +192,7 @@ const userRegistered =
   mongoose.models.Registered || mongoose.model("Registered", Registration);
 const eventDetails =
   mongoose.models.Details || mongoose.model("Details", Details);
+const eventResults =
+  mongoose.models.results || mongoose.model("results", Result);
 
-export { authUser, userRegistered, eventDetails };
+export { authUser, userRegistered, eventDetails, eventResults };

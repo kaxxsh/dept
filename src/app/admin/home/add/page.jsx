@@ -22,6 +22,7 @@ const page = () => {
     title: "",
     description: "",
     days: "",
+    date: "",
     round1: "",
     round2: "",
     round3: "",
@@ -31,6 +32,10 @@ const page = () => {
     indescription: "",
     linkedin: "",
     mailid: "",
+    location: "",
+    facoordinator: "",
+    stcoordinator1: "",
+    stcoordinator2: "",
   });
 
   // useEffect(() => {
@@ -140,6 +145,15 @@ const page = () => {
               name="days"
               placeholder="Number of Days"
               onChange={(e) => setForm({ ...form, days: e.target.value })}
+            />
+            <label htmlFor="date">Date</label>
+            <input
+              value={form.date}
+              aria-autocomplete="list"
+              type="date"
+              name="date"
+              placeholder="Date"
+              onChange={(e) => setForm({ ...form, date: e.target.value })}
             />
             <label htmlFor="banner">Banner</label>
             <div className={styles.upload}>
@@ -494,6 +508,51 @@ const page = () => {
                 );
               })}
             </div>
+          </div>
+          <div className="">Footer</div>
+          <div className={styles.text}>
+            <label htmlFor="location">Location</label>
+            <input
+              value={form.location}
+              aria-autocomplete="list"
+              type="text"
+              name="location"
+              placeholder="Enter location"
+              onChange={(e) => setForm({ ...form, location: e.target.value })}
+            />
+            <label htmlFor="facoordinator">Faculty Co-ordinator</label>
+            <input
+              value={form.facoordinator}
+              aria-autocomplete="list"
+              type="text"
+              name="facoordinator"
+              placeholder="Enter Faculty co-ordinator (00000 00000)"
+              onChange={(e) =>
+                setForm({ ...form, facoordinator: e.target.value })
+              }
+            />
+            <label htmlFor="stcoordinator1">Student Co-ordinator</label>
+            <input
+              value={form.stcoordinator1}
+              aria-autocomplete="list"
+              type="text"
+              name="stcoordinator1"
+              placeholder="Enter Studdent Co-ordinator (00000 00000)"
+              onChange={(e) =>
+                setForm({ ...form, stcoordinator1: e.target.value })
+              }
+            />
+            <label htmlFor="stcoordinator2">Student Co-ordinator</label>
+            <input
+              value={form.stcoordinator2}
+              aria-autocomplete="list"
+              type="text"
+              name="stcoordinator2"
+              placeholder="Enter Studdent Co-ordinator (00000 00000)"
+              onChange={(e) =>
+                setForm({ ...form, stcoordinator2: e.target.value })
+              }
+            />
           </div>
         </div>
         <div className={styles.right}>
