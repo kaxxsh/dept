@@ -2,16 +2,22 @@
 import { BASE_URL } from "@/config";
 import styles from "@/styles/admin.module.scss";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 const Participants = async () => {
   const [data, setdata] = useState({});
-  const response = await fetch(BASE_URL + "/api/registration", {
-    cache: "no-store",
-    credentials: "include",
-    method: "GET",
-  })
-    .then((res) => res.json())
-    .then((res) => setdata(res));
+  const response = async () => {
+    await fetch(BASE_URL + "/api/registration", {
+      cache: "no-store",
+      credentials: "include",
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((res) => setdata(res));
+  };
+  useEffect(() => {
+    response();
+  }, []);
+
   return (
     <div className={styles.products}>
       <div
