@@ -4,6 +4,7 @@ import stylesfoot from "@/styles/footer.module.css";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { BASE_URL } from "@/config";
+import Image from "next/image";
 export default function Result() {
   const params = useParams();
   const [data, setdata] = useState({});
@@ -119,7 +120,12 @@ export default function Result() {
             <div className={stylesfoot.title}>SOCIAL MEDIA</div>
             <div className="">
               <a href="https://www.instagram.com/it_drestein23/?igshid=YTQwZjQ0NmI0OA%3D%3D">
-                <img src="/insta.svg" alt="" />
+                <Image
+                  src="/insta.svg"
+                  width={40}
+                  height={40}
+                  alt="Picture of the author"
+                />
               </a>
             </div>
           </div>

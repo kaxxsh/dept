@@ -1,5 +1,6 @@
 import styles from "@/styles/home.module.scss";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Main() {
   return (
@@ -23,7 +24,12 @@ export default function Main() {
         </div>
 
         <div className={styles.right}>
-          <img src="/main.svg" alt="" />
+          <Image
+            src="/main.svg"
+            width={500}
+            height={500}
+            alt="Picture of the author"
+          />
         </div>
       </div>
       <div className={styles.registration}>

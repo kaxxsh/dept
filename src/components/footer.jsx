@@ -1,4 +1,5 @@
 import styles from "../styles/footer.module.css";
+import Image from "next/image";
 export default function Footer() {
   return (
     <section>
@@ -31,7 +32,12 @@ export default function Footer() {
             <div className={styles.title}>SOCIAL MEDIA</div>
             <div className="">
               <a href="https://www.instagram.com/it_drestein23/?igshid=YTQwZjQ0NmI0OA%3D%3D">
-                <img src="/insta.svg" alt="" />
+                <Image
+                  src="/insta.svg"
+                  width={40}
+                  height={40}
+                  alt="Picture of the author"
+                />
               </a>
             </div>
           </div>

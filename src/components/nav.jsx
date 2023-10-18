@@ -1,12 +1,18 @@
 import styles from "@/styles/nav.module.css";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Nav() {
   return (
     <div className={styles.navbar}>
       <div className={styles.logo}>
         <Link href="/#">
-          <img src="/logo.svg" alt="not found" />
+        <Image
+            src="/logo.svg"
+            width={500}
+            height={500}
+            alt="Picture of the author"
+          />
         </Link>
       </div>
       <div className={styles.menu}>

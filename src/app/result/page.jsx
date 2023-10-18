@@ -1,4 +1,5 @@
 import styles from "@/styles/result.module.scss";
+
 export default function Result() {
   return (
     <section>
