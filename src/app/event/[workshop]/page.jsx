@@ -3,6 +3,7 @@ import styles from "@/styles/result.module.scss";
 import stylesfoot from "@/styles/footer.module.css";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { BASE_URL } from "@/config";
 
 export default function Name() {
@@ -42,12 +43,16 @@ export default function Name() {
 
   return (
     <section>
-      {/* {console.log(data)} */}
       <div className={styles.container}>
         <div className={styles.title}>{title}</div>
         <div className={styles.instructor}>
           <div className={styles.photo}>
-            <img src={data.photo} alt="banner" />
+            <Image
+              src={data.photo}
+              width={500}
+              height={500}
+              alt="Picture of the author"
+            />
           </div>
           <div className={styles.details}>
             <div className={styles.designation}>
@@ -91,7 +96,12 @@ export default function Name() {
           </div>
         </div>
         <div className={styles.banner}>
-          <img src={data.banner} alt="" />
+          <Image
+            src={data.banner}
+            width={500}
+            height={500}
+            alt="Picture of the author"
+          />
         </div>
       </div>
       <div className={stylesfoot.footer}>
@@ -121,7 +131,12 @@ export default function Name() {
             <div className={stylesfoot.title}>SOCIAL MEDIA</div>
             <div className="">
               <a href="https://www.instagram.com/it_drestein23/?igshid=YTQwZjQ0NmI0OA%3D%3D">
-                <img src="/insta.svg" alt="" />
+                <Image
+                  src="/insta.svg"
+                  width={40}
+                  height={40}
+                  alt="Picture of the author"
+                />
               </a>
             </div>
           </div>
