@@ -4,8 +4,8 @@ import styles from "@/styles/admin.module.scss";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
-const Result = async () => {
-  const [data, setdata] = useState({});
+const Result = () => {
+  const [data, setdata] = useState([]);
   const response = async () => {
     await fetch(BASE_URL + "/api/result", {
       cache: "no-store",
@@ -13,7 +13,7 @@ const Result = async () => {
       method: "GET",
     })
       .then((res) => res.json())
-      .then((res) => setdata(res));
+      .then((res) => setdata(res.data));
   };
 
   useEffect(() => {
@@ -43,7 +43,7 @@ const Result = async () => {
             </tr>
           </thead>
           <tbody>
-            {data.map((item) => {
+            {data?.map((item) => {
               return (
                 <tr key={item._id} style={{ width: "100%" }}>
                   <td>

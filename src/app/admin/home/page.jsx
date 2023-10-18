@@ -4,8 +4,8 @@ import styles from "@/styles/admin.module.scss";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
-const Home = async () => {
-  const [data, setdata] = useState({});
+const Home = () => {
+  const [data, setdata] = useState([]);
   const response = async () => {
     await fetch(BASE_URL + "/api/event", {
       cache: "no-store",
@@ -13,7 +13,7 @@ const Home = async () => {
       method: "GET",
     })
       .then((res) => res.json())
-      .then((res) => setdata(res));
+      .then((res) => setdata(res.data));
   };
 
   useEffect(() => {
@@ -22,6 +22,7 @@ const Home = async () => {
 
   return (
     <div className={styles.products}>
+      {console.log(data)}
       <div
         className={styles.top}
         style={{
@@ -43,7 +44,7 @@ const Home = async () => {
             </tr>
           </thead>
           <tbody>
-            {data.map((item) => {
+            {data?.map((item) => {
               return (
                 <tr key={item._id} style={{ width: "100%" }}>
                   <td>

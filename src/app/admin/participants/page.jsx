@@ -3,8 +3,8 @@ import { BASE_URL } from "@/config";
 import styles from "@/styles/admin.module.scss";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-const Participants = async () => {
-  const [data, setdata] = useState({});
+const Participants = () => {
+  const [data, setdata] = useState([]);
   const response = async () => {
     await fetch(BASE_URL + "/api/registration", {
       cache: "no-store",
@@ -12,7 +12,7 @@ const Participants = async () => {
       method: "GET",
     })
       .then((res) => res.json())
-      .then((res) => setdata(res));
+      .then((res) => setdata(res.data));
   };
   useEffect(() => {
     response();
@@ -41,7 +41,7 @@ const Participants = async () => {
             </tr>
           </thead>
           <tbody>
-            {data.map((item) => {
+            {data?.map((item) => {
               return (
                 <tr key={item._id} style={{ width: "100%" }}>
                   <td>
