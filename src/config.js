@@ -1,4 +1,4 @@
 export const BASE_URL =
   process.env.NEXT_PUBLIC_NODE_ENV === "development"
     ? "http://localhost:3000"
-    : "https://dept-r82i97o66-kaxxsh.vercel.app/";
+    : "https://dept-pearl.vercel.app/";
