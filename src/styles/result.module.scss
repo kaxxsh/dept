@@ -50,12 +50,8 @@
 .list > a {
   width: 20%;
   height: 50vh;
-  box-shadow: 0px 0px 22px 3px rgba(255, 255, 255, 0.75);
   border-radius: 0.5rem;
-  background-image: url("../../public/drone.PNG");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  border: 1px solid white;
   transition: transform 0.3s;
 }
 
@@ -228,7 +224,7 @@
       margin-left: 10%;
       display: flex;
       align-items: center;
-      text-decoration:solid;
+      text-decoration: solid;
     }
   }
 }

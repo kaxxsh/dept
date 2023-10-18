@@ -65,27 +65,21 @@ const Details = new mongoose.Schema({
   round1: {
     type: String,
   },
-  rule1: [
-    {
-      type: String,
-    },
-  ],
+  rule1: {
+    type: String,
+  },
   round2: {
     type: String,
   },
-  rule2: [
-    {
-      type: String,
-    },
-  ],
+  rule2: {
+    type: String,
+  },
   round3: {
     type: String,
   },
-  rule3: [
-    {
-      type: String,
-    },
-  ],
+  rule3: {
+    type: String,
+  },
   inposition: {
     type: String,
   },
@@ -113,9 +107,11 @@ const Details = new mongoose.Schema({
   requirements: {
     type: String,
   },
-  Course: {
+
+  course: {
     type: String,
   },
+
   location: {
     type: String,
     required: true,

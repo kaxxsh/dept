@@ -1,4 +1,5 @@
 import styles from "@/styles/home.module.scss";
+import Link from "next/link";
 
 export default function Main() {
   return (
@@ -26,9 +27,9 @@ export default function Main() {
         </div>
       </div>
       <div className={styles.registration}>
-        <a href="/register">
+        <Link href="/register">
           <div className={styles.btn}>REGISTER</div>
-        </a>
+        </Link>
       </div>
     </section>
   );

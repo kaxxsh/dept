@@ -25,12 +25,16 @@ export async function POST(req) {
           round3: data.round3,
         });
       } else {
-        await eventResults.findByIdAndUpdate(data._id, {
-          event: data.type,
-          round1: data.type,
-          round2: data.type,
-          round3: data.type,
-        });
+        try {
+          await eventResults.findByIdAndUpdate(data._id, {
+            event: data.event,
+            round1: data.round1,
+            round2: data.round2,
+            round3: data.round3,
+          });
+        } catch (error) {
+          console.log(error);
+        }
       }
     } catch (error) {
       console.log(error);

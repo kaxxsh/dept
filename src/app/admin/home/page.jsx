@@ -10,7 +10,6 @@ const page = async () => {
   }).then((res) => res.json());
   return (
     <div className={styles.products}>
-      {console.log(data)}
       <div
         className={styles.top}
         style={{
@@ -46,9 +45,9 @@ const page = async () => {
                       }}
                     />
                   </td>
-                  <td>{item.title}</td>
+                  <td>{item.title.toUpperCase()}</td>
                   <td>
-                    <Link href={`/area51/products/add?id=${item._id}`}>
+                    <Link href={`/admin/home/add?id=${item._id}`}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"

@@ -2,7 +2,7 @@ import styles from "../styles/footer.module.css";
 export default function footer() {
   return (
     <section>
-      <div className={styles.footer}>
+      <div className={styles.footer} id="contact">
         <div className={styles.contact}>
           <div className={styles.head}>
             <div className={styles.title}>LOCATION</div>
@@ -27,8 +27,7 @@ export default function footer() {
         <div className={styles.location}>
           <div className={styles.contact}>
             <div className={styles.title}>CONTACT</div>
-            <div className="">EMAIL : drestein.it@gmail.com</div>
-            <div className="">PHONE : 0000000000</div>
+            <div className="">EMAIL : cse.drestein.it@gmail.com</div>
             <div className={styles.title}>SOCIAL MEDIA</div>
             <div className="">
               <a href="https://www.instagram.com/it_drestein23/?igshid=YTQwZjQ0NmI0OA%3D%3D">

@@ -45,7 +45,7 @@ const Result = async () => {
                       }}
                     />
                   </td>
-                  <td>{item.event}</td>
+                  <td>{item.event.toUpperCase()}</td>
                   <td>
                     <Link href={`/admin/result/add?id=${item._id}`}>
                       <svg

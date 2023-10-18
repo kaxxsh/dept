@@ -7,16 +7,53 @@ export default function Result() {
         <div className={styles.box}>
           <div className={styles.title}>EVENTS</div>
           <div className={styles.list}>
-            <a href="/result/Drone The Dracarys">
+            <a
+              href="/result/promptcraft"
+              style={{
+                background: 'url("/logo/prompt.jpg")',
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                minHeight: "200px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
               <div className={styles.card}></div>
             </a>
-            <a href="/result/event2">
+
+            <a
+              href="/result/riddlesql"
+              style={{
+                background: 'url("/logo/redsql.jpg")',
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+              }}
+            >
               <div className={styles.card}></div>
             </a>
-            <a href="/result/event3">
+            <a
+              href="/result/drone"
+              style={{
+                background: 'url("/logo/drone.png")',
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+              }}
+            >
               <div className={styles.card}></div>
             </a>
-            <a href="/result/event4">
+            <a
+              href="/result/embrace"
+              style={{
+                background: 'url("/logo/embrace.png")',
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+              }}
+            >
               <div className={styles.card}></div>
             </a>
           </div>

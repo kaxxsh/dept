@@ -1,5 +1,5 @@
 "use client";
-import { useCallback } from "react";
+import React, { useEffect } from 'react';
 import Nav from "@/components/nav";
 import Main from "@/components/main";
 import Event from "@/components/event";
@@ -8,13 +8,19 @@ import Particles from "react-tsparticles";
 import { Particle } from "@/partical.config";
 import { loadFull } from "tsparticles";
 import AOS from "aos";
-export default function Home() {
-  const particlesInit = useCallback(async (engine) => {
-    await loadFull(engine);
-  }, []);
+import 'aos/dist/aos.css'; // Import AOS CSS
 
-  const particlesLoaded = useCallback(async (container) => {}, []);
-  AOS.init();
+export default function Home() {
+  const particlesInit = async (engine) => {
+    await loadFull(engine);
+  };
+
+  const particlesLoaded = async (container) => {};
+
+  useEffect(() => {
+    AOS.init();
+  }, []); // Run AOS initialization on the client side
+
   return (
     <div className="">
       <Nav />

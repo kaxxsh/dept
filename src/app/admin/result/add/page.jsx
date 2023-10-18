@@ -7,27 +7,37 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-const page = () => {
-  // const searchParams = useSearchParams();
-  // const id = searchParams.get("id");
+const Page = () => {
+  const searchParams = useSearchParams();
+  const id = searchParams.get("id");
   const [Rule1, setRule1] = useState([]);
   const [Rule2, setRule2] = useState([]);
   const [Rule3, setRule3] = useState([]);
-  const [form, setform] = useState({
+  const [form, setForm] = useState({
     event: "",
   });
-  // useEffect(() => {
-  //   if (id) {
-  //     fetch(BASE_URL + "/api/area51/product/" + id)
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         setColors(data.colors);
-  //         setSizes(data.sizes);
-  //         setImages(data.media);
-  //         setForm(data);
-  //       });
-  //   }
-  // }, [id]);
+
+  useEffect(() => {
+    if (id) {
+      fetch(BASE_URL + "/api/result/" + id)
+        .then((res) => res.json())
+        .then((data) => {
+          data.round1 = JSON.parse(data.round1);
+          data.round2 = JSON.parse(data.round2);
+          data.round3 = JSON.parse(data.round3);
+          setForm(data);
+        });
+    }
+  }, [id]);
+
+  useEffect(() => {
+    console.log(form);
+    if (form.round1 && form.round2 && form.round3) {
+      setRule1([...form.round1]);
+      setRule2([...form.round2]);
+      setRule3([...form.round3]);
+    }
+  }, [form]);
 
   const handleSubmit = async () => {
     const formData = new FormData();
@@ -37,26 +47,31 @@ const page = () => {
     formData.append("round1", JSON.stringify(Rule1));
     formData.append("round2", JSON.stringify(Rule2));
     formData.append("round3", JSON.stringify(Rule3));
-    const response = fetch(BASE_URL + "/api/result", {
-      cache: "no-store",
-      credentials: "include",
-      method: "POST",
-      body: formData,
-    });
-    toast.promise(response, {
-      pending: "Adding product...",
-      success: "Product Added!",
-      error: "Error adding product!",
-    });
-    const data = await response.then((response) => response.json());
+
+    try {
+      const response = await fetch(BASE_URL + "/api/result", {
+        cache: "no-store",
+        credentials: "include",
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        toast.success("Product Added!");
+      } else {
+        toast.error("Error adding product!");
+      }
+    } catch (error) {
+      toast.error("Error adding product!");
+    }
   };
 
-  // error handling wip
   return (
     <div className={styles.products}>
       <div className={styles.top}>
         <span>
-          <Link href="/admin/home">{"<"}-&nbsp;</Link>
+          <Link href="/admin/result">{"<"}-&nbsp;</Link>
         </span>
         Add Event
       </div>
@@ -175,13 +190,13 @@ const page = () => {
             <select
               name="type"
               value={form.event}
-              onChange={(e) => setform({ ...form, event: e.target.value })}
+              onChange={(e) => setForm({ ...form, event: e.target.value })}
             >
-              <option value="">Select a type</option>
-              <option value="Event1">Event1</option>
-              <option value="Event2">Event2</option>
-              <option value="Event3">Event3</option>
-              <option value="event4">Event4</option>
+              <option value="">Select a title</option>
+              <option value="promptcraft">PROMPTCRAFT</option>
+              <option value="riddlesql">RiddleSQL</option>
+              <option value="drone">DRONE THE DRACARYS</option>
+              <option value="embrace">EMBRACE THE UNKNOWN</option>
             </select>
           </div>
           <div className={styles.submit}>
@@ -189,7 +204,7 @@ const page = () => {
             the website
             <div className={styles["button-container"]}>
               <button>Preview</button>
-              <button onClick={handleSubmit}>Add</button>
+              <button onClick={handleSubmit}>{!id ? "ADD" : "UPDATE"}</button>
             </div>
           </div>
         </div>
@@ -198,4 +213,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

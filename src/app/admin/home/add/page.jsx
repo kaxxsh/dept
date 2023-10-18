@@ -3,13 +3,14 @@
 import { BASE_URL } from "@/config";
 import styles from "@/styles/admin.module.scss";
 import Link from "next/link";
-// import { useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 const page = () => {
-  // const searchParams = useSearchParams();
-  // const id = searchParams.get("id");
+  const searchParams = useSearchParams();
+  const id = searchParams.get("id");
+
   const [Rule1, setRule1] = useState([]);
   const [Rule2, setRule2] = useState([]);
   const [Rule3, setRule3] = useState([]);
@@ -38,18 +39,38 @@ const page = () => {
     stcoordinator2: "",
   });
 
-  // useEffect(() => {
-  //   if (id) {
-  //     fetch(BASE_URL + "/api/area51/product/" + id)
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         setColors(data.colors);
-  //         setSizes(data.sizes);
-  //         setImages(data.media);
-  //         setForm(data);
-  //       });
-  //   }
-  // }, [id]);
+  useEffect(() => {
+    if (id) {
+      fetch(BASE_URL + "/api/event/" + id)
+        .then((res) => res.json())
+        .then((data) => {
+          data.rule1 = JSON.parse(data.rule1);
+          data.rule2 = JSON.parse(data.rule2);
+          data.rule3 = JSON.parse(data.rule3);
+          data.requirements = JSON.parse(data.requirements);
+          data.course = JSON.parse(data.course);
+          setForm(data);
+        });
+    }
+  }, [id]);
+
+  useEffect(() => {
+    if (
+      Array.isArray(form.rule1) &&
+      Array.isArray(form.rule2) &&
+      Array.isArray(form.rule3) &&
+      Array.isArray(form.course) &&
+      Array.isArray(form.requirements)
+    ) {
+      setRule1([...form.rule1]);
+      setRule2([...form.rule2]);
+      setRule3([...form.rule3]);
+      setCourse([...form.course]);
+      setRequirements([...form.requirements]);
+      setBanner([...form.banner]);
+      setPhoto([...form.photo]);
+    }
+  }, [form]);
 
   const handleSubmit = async () => {
     const formData = new FormData();
@@ -79,29 +100,6 @@ const page = () => {
       error: "Error adding product!",
     });
     const data = await response.then((response) => response.json());
-    // console.log(data);
-    // console.log(
-    //   form.type,
-    //   form.title,
-    //   form.description,
-    //   form.days,
-    //   form.round1,
-    //   form.round2,
-    //   form.round3,
-    //   form.inposition,
-    //   form.inname,
-    //   form.inexeperience,
-    //   form.indescription,
-    //   form.linkedin,
-    //   form.mailid,
-    //   Rule1,
-    //   Rule2,
-    //   Rule3,
-    //   Requirements,
-    //   Course,
-    //   Banner,
-    //   Photo
-    // );
   };
 
   // error handling wip
@@ -117,15 +115,27 @@ const page = () => {
         <div className={styles.left}>
           <div className="">BASIC</div>
           <div className={styles.text}>
-            <label htmlFor="title">Title</label>
-            <input
-              value={form.title}
-              aria-autocomplete="list"
-              type="text"
+            <label htmlFor="title">title</label>
+            <select
               name="title"
-              placeholder="Enter title"
+              value={form.title}
               onChange={(e) => setForm({ ...form, title: e.target.value })}
-            />
+            >
+              <option value="">Select a title</option>
+              <option value="promptcraft">PROMPTCRAFT</option>
+              <option value="riddlesql">RiddleSQL</option>
+              <option value="drone">DRONE THE DRACARYS</option>
+              <option value="embrace">EMBRACE THE UNKNOWN</option>
+              <option value="devsecope">DEVSECOPS</option>
+              <option value="erc">ERC-Token Blockchain</option>
+              <option value="salesforce">Salesforce</option>
+              <option value="cybersecurity">Cybersecurity</option>
+              <option value="cloud">Cloud CI/CD Pipeline</option>
+              <option value="advance">
+                CAdvanced AI Analytics in Healthcare
+              </option>
+              <option value="llms">Advanced AI Analytics in Healthcare</option>
+            </select>
             <label htmlFor="description">Description</label>
             <textarea
               value={form.description}
@@ -573,7 +583,7 @@ const page = () => {
             the website
             <div className={styles["button-container"]}>
               <button>Preview</button>
-              <button onClick={handleSubmit}>Add</button>
+              <button onClick={handleSubmit}>{id ? "UPDATE" : "ADD"}</button>
             </div>
           </div>
         </div>
