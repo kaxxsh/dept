@@ -47,12 +47,7 @@ export default function Name() {
         <div className={styles.title}>{title}</div>
         <div className={styles.instructor}>
           <div className={styles.photo}>
-            <Image
-              src={data.photo}
-              width={500}
-              height={500}
-              alt="Picture of the author"
-            />
+            <img src={data.photo} alt="" />
           </div>
           <div className={styles.details}>
             <div className={styles.designation}>
@@ -96,12 +91,7 @@ export default function Name() {
           </div>
         </div>
         <div className={styles.banner}>
-          <Image
-            src={data.banner}
-            width={500}
-            height={500}
-            alt="Picture of the author"
-          />
+          <img src={data.banner} alt="" />
         </div>
       </div>
       <div className={stylesfoot.footer}>
