@@ -22,7 +22,7 @@ const Home = () => {
 
   return (
     <div className={styles.products}>
-      {console.log(data)}
+      
       <div
         className={styles.top}
         style={{

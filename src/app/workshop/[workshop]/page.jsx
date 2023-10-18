@@ -1,15 +1,10 @@
-"use client";
 import styles from "@/styles/result.module.scss";
 import stylesfoot from "@/styles/footer.module.css";
-import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import { BASE_URL } from "@/config";
 
-export default function Name() {
-  const [data, setdata] = useState({});
-  const params = useParams();
-  var url = params.workshop;
+const page = async ({ params }) => {
+  const url = params.workshop;
   let title;
   if (url === "devsecope") {
     title = "DEVSECOPS";
@@ -27,19 +22,12 @@ export default function Name() {
     title = "Cloud CI/CD Pipeline";
   }
 
-  const Fetch = async () => {
-    await fetch(BASE_URL + "/api/event/id=1/" + url, {
-      cache: "no-store",
-      credentials: "include",
-      method: "GET",
-    })
-      .then((res) => res.json())
-      .then((item) => setdata(item));
-  };
-
-  useEffect(() => {
-    Fetch();
-  }, []);
+  const response = await fetch(BASE_URL + "/api/event/id=1/" + url, {
+    cache: "no-store",
+    credentials: "include",
+    method: "GET",
+  });
+  const data = await response.json();
 
   return (
     <section>
@@ -47,18 +35,18 @@ export default function Name() {
         <div className={styles.title}>{title}</div>
         <div className={styles.instructor}>
           <div className={styles.photo}>
-            <img src={data.photo} alt="" />
+            <img src={data?.photo[0]} alt="" />
           </div>
           <div className={styles.details}>
             <div className={styles.designation}>
-              Designation : {data.inposition}
+              Designation : {data?.inposition}
             </div>
-            <div className={styles.name}>Name : {data.inname}</div>
+            <div className={styles.name}>Name : {data?.inname}</div>
             <div className={styles.Description}>
-              Description : {data.indescription}
+              Description : {data?.indescription}
             </div>
             <div className={styles.Description}>
-              Experience : {data.inexeperience}
+              Experience : {data?.inexeperience}
             </div>
           </div>
         </div>
@@ -67,7 +55,7 @@ export default function Name() {
           <div className={styles.content}>
             <div className={styles.card}>
               {data?.course
-                ? JSON.parse(data.course).map((item, index) => (
+                ? JSON.parse(data?.course).map((item, index) => (
                     <div key={index} className="">
                       {`=> ${item}`}
                     </div>
@@ -81,7 +69,7 @@ export default function Name() {
           <div className={styles.content}>
             <div className={styles.card}>
               {data?.requirements
-                ? JSON.parse(data.requirements).map((item, index) => (
+                ? JSON.parse(data?.requirements).map((item, index) => (
                     <div key={index} className="">
                       {`=> ${item}`}
                     </div>
@@ -91,14 +79,14 @@ export default function Name() {
           </div>
         </div>
         <div className={styles.banner}>
-          <img src={data.banner} alt="" />
+          <img src={data?.banner} alt="" />
         </div>
       </div>
       <div className={stylesfoot.footer}>
         <div className={stylesfoot.contact}>
           <div className={stylesfoot.head}>
             <div className={stylesfoot.title}>LOCATION</div>
-            <div className={stylesfoot.location}>{data.location}</div>
+            <div className={stylesfoot.location}>{data?.location}</div>
             <div className={stylesfoot.title}>CO-ORDINATORS</div>
             <div className={stylesfoot.subtitle}>
               MS.G.ABINAYA ( 95002 06093 )
@@ -108,10 +96,10 @@ export default function Name() {
         <div className={stylesfoot.other}>
           <div className={stylesfoot.subhead}>
             <div className={stylesfoot.title}>EVENT CO-ORDINATORS</div>
-            <div className={stylesfoot.subtitle}>{data.facoordinator}</div>
+            <div className={stylesfoot.subtitle}>{data?.facoordinator}</div>
             <div className={stylesfoot.title}>STUDENT CO-ORDINATORS</div>
-            <div className={stylesfoot.subtitle}>{data.stcoordinator1}</div>
-            <div className={stylesfoot.subtitle}>{data.stcoordinator2}</div>
+            <div className={stylesfoot.subtitle}>{data?.stcoordinator1}</div>
+            <div className={stylesfoot.subtitle}>{data?.stcoordinator2}</div>
           </div>
         </div>
         <div className={stylesfoot.location}>
@@ -134,4 +122,6 @@ export default function Name() {
       </div>
     </section>
   );
-}
+};
+
+export default page;

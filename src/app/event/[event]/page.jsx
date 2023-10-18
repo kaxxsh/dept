@@ -1,14 +1,9 @@
-"use client";
 import styles from "@/styles/result.module.scss";
 import stylesfoot from "@/styles/footer.module.css";
-import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
 import { BASE_URL } from "@/config";
 
-export default function Name() {
-  const params = useParams();
-  const [data, setdata] = useState({});
-  var url = params.event;
+const page = async ({ params }) => {
+  const url = params.event;
   let title;
   if (url === "promptcraft") {
     title = "PROMPTCRAFT";
@@ -19,24 +14,15 @@ export default function Name() {
   } else if (url === "embrace") {
     title = "EMBRACE THE UNKNOWN";
   }
-
-  const Fetch = async () => {
-    await fetch(BASE_URL + "/api/event/id=1/" + url, {
-      cache: "no-store",
-      credentials: "include",
-      method: "GET",
-    })
-      .then((res) => res.json())
-      .then((item) => setdata(item));
-  };
-
-  useEffect(() => {
-    Fetch();
-  }, []);
+  const response = await fetch(BASE_URL + "/api/event/id=1/" + url, {
+    cache: "no-store",
+    credentials: "include",
+    method: "GET",
+  });
+  const data = await response.json();
 
   return (
     <section>
-      {console.log(data)}
       <div className={styles.container}>
         <div className={styles.title}>{title}</div>
         <div className={styles.event}>
@@ -125,4 +111,6 @@ export default function Name() {
       </div>
     </section>
   );
-}
+};
+
+export default page;

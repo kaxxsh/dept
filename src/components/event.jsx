@@ -12,7 +12,7 @@ export default function Event() {
               <div className={styles.title}>WORKSHOPS</div>
             </div>
             <div data-aos="fade-down-left">
-              <Link href="/event/devsecope">
+              <Link href="/workshop/devsecope">
                 <div
                   className={styles.card}
                   style={{
@@ -29,7 +29,7 @@ export default function Event() {
               </Link>
             </div>
             <div data-aos="fade-down-left">
-              <Link href="/event/erc">
+              <Link href="/workshop/erc">
                 <div
                   className={styles.card}
                   style={{
@@ -46,7 +46,7 @@ export default function Event() {
               </Link>
             </div>
             <div data-aos="fade-down-left">
-              <Link href="/event/salesforce">
+              <Link href="/workshop/salesforce">
                 <div
                   className={styles.card}
                   style={{
@@ -63,7 +63,7 @@ export default function Event() {
               </Link>
             </div>
             <div data-aos="fade-down-left">
-              <Link href="/event/cybersecurity">
+              <Link href="/workshop/cybersecurity">
                 <div
                   className={styles.card}
                   style={{
@@ -80,7 +80,7 @@ export default function Event() {
               </Link>
             </div>
             <div data-aos="fade-down-left">
-              <Link href="/event/cloud">
+              <Link href="/workshop/cloud">
                 <div
                   className={styles.card}
                   style={{
@@ -97,7 +97,7 @@ export default function Event() {
               </Link>
             </div>
             <div data-aos="fade-down-left">
-              <Link href="/event/advance">
+              <Link href="/workshop/advance">
                 <div
                   className={styles.card}
                   style={{
@@ -114,7 +114,7 @@ export default function Event() {
               </Link>
             </div>
             <div data-aos="fade-down-left">
-              <Link href="/event/llms">
+              <Link href="/workshop/llms">
                 <div
                   className={styles.card}
                   style={{
@@ -136,7 +136,7 @@ export default function Event() {
               <div className={styles.title}>EVENTS</div>
             </div>
             <div data-aos="fade-down-left">
-              <Link href="/event/list/promptcraft">
+              <Link href="/event/promptcraft">
                 <div
                   className={styles.card}
                   style={{
@@ -153,7 +153,7 @@ export default function Event() {
               </Link>
             </div>
             <div data-aos="fade-down-left">
-              <Link href="/event/list/riddlesql">
+              <Link href="/event/riddlesql">
                 <div
                   className={styles.card}
                   style={{
@@ -170,7 +170,7 @@ export default function Event() {
               </Link>
             </div>
             <div data-aos="fade-down-left">
-              <Link href="/event/list/drone">
+              <Link href="/event/drone">
                 <div
                   className={styles.card}
                   style={{
@@ -187,7 +187,7 @@ export default function Event() {
               </Link>
             </div>
             <div data-aos="fade-down-left">
-              <Link href="/event/list/embrace">
+              <Link href="/event/embrace">
                 <div
                   className={styles.card}
                   style={{

@@ -35,7 +35,7 @@ export default function Result() {
   }, []);
   return (
     <section>
-      {console.log(data)}
+
       <div className={styles.container}>
         <div className={styles.title}>{title}</div>
         <div className={styles.event}>
