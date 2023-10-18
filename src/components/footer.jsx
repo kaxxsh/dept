@@ -1,5 +1,5 @@
 import styles from "../styles/footer.module.css";
-export default function footer() {
+export default function Footer() {
   return (
     <section>
       <div className={styles.footer} id="contact">

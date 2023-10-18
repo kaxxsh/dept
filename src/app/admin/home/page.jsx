@@ -2,7 +2,7 @@ import { BASE_URL } from "@/config";
 import styles from "@/styles/admin.module.scss";
 import Link from "next/link";
 
-const page = async () => {
+const Home = async () => {
   const { data } = await fetch(BASE_URL + "/api/event", {
     cache: "no-store",
     credentials: "include",
@@ -76,4 +76,4 @@ const page = async () => {
   );
 };
 
-export default page;
+export default Home;

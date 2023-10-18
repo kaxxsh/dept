@@ -7,7 +7,7 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-const Page = () => {
+const Add = () => {
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
   const [Rule1, setRule1] = useState([]);
@@ -213,4 +213,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default Add;

@@ -1,7 +1,7 @@
 import styles from "@/styles/admin.module.scss";
 
-const Home = () => {
+const Page = () => {
   return <div className={styles.test}>Hello</div>;
 };
 
-export default Home;
+export default Page;
