@@ -8,6 +8,7 @@ export async function GET(req, { params }) {
   const url = params.url;
   try {
     const res = await eventDetails.findOne({ title: url });
+    console.log(res);
     return NextResponse.json(res, { status: 200 });
   } catch (error) {
     console.log(error);

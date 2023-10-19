@@ -35,6 +35,7 @@ const page = async ({ params }) => {
         <div className={styles.title}>{title}</div>
         <div className={styles.instructor}>
           <div className={styles.photo}>
+            {console.log(data?.photo)}
             <img src={data?.photo[0]} alt="" />
           </div>
           <div className={styles.details}>

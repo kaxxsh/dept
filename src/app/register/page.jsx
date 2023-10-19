@@ -70,14 +70,22 @@ export default function Register() {
                   }))
                 }
               >
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
-                <option value="option4">Option 4</option>
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
-                <option value="option4">Option 4</option>
+                <option value="">Select a title</option>
+                <option value="promptcraft">PROMPTCRAFT</option>
+                <option value="riddlesql">RiddleSQL</option>
+                <option value="drone">DRONE THE DRACARYS</option>
+                <option value="embrace">EMBRACE THE UNKNOWN</option>
+                <option value="devsecope">DEVSECOPS</option>
+                <option value="erc">ERC-Token Blockchain</option>
+                <option value="salesforce">Salesforce</option>
+                <option value="cybersecurity">Cybersecurity</option>
+                <option value="cloud">Cloud CI/CD Pipeline</option>
+                <option value="advance">
+                  CAdvanced AI Analytics in Healthcare
+                </option>
+                <option value="llms">
+                  Advanced AI Analytics in Healthcare
+                </option>
               </select>
             </div>
             <div className={styles.content}>
