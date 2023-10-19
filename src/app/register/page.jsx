@@ -81,10 +81,10 @@ export default function Register() {
                 <option value="cybersecurity">Cybersecurity</option>
                 <option value="cloud">Cloud CI/CD Pipeline</option>
                 <option value="advance">
-                  CAdvanced AI Analytics in Healthcare
+                  Advanced AI Analytics in Healthcare
                 </option>
                 <option value="llms">
-                  Advanced AI Analytics in Healthcare
+                LLMs and Prompt Engineering
                 </option>
               </select>
             </div>
